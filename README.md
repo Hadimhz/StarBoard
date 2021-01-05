@@ -28,7 +28,7 @@ Channel ID which the app will send messages in.
 ### reaction:
 <br>
 
-Must be a (unicode)[https://coolsymbol.com/emojis/emoji-for-copy-and-paste.html].
+Must be a [unicode](https://coolsymbol.com/emojis/emoji-for-copy-and-paste.html).
 
 ### minReactions:
 <br>
