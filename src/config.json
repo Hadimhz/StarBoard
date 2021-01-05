@@ -1,0 +1,10 @@
+{
+    "token": "Bot Token",
+    "guild": "GuildID",
+    "channel": "ChannelID",
+    "requiresStaffReaction": false,
+    "staffRoles": [""],
+    "reaction": "⭐",
+    "minReactions": 5,
+    "devDebug": false
+}
