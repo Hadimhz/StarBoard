@@ -10,6 +10,8 @@ const config_json_1 = __importDefault(require("./config.json"));
 const quick_db_1 = __importDefault(require("quick.db"));
 let queue = [];
 let send = async (channel, message, stars, edit) => {
+    if (stars < config_json_1.default.minReactions)
+        return;
     let embed = new discord_js_1.default.MessageEmbed().setColor("GOLD")
         .setAuthor(message.author.tag).setDescription('**__Message Content:__**\n' + message.content
         + '\n\n``` ```' + `[Click Here To View The Message](${message.url})`)

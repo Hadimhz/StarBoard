@@ -2,9 +2,9 @@
     "token": "Bot Token",
     "guild": "GuildID",
     "channel": "ChannelID",
-    "requiresStaffReaction": false,
-    "staffRoles": [""],
     "reaction": "⭐",
     "minReactions": 5,
+    "requiresStaffReaction": false,
+    "staffRoles": [""],
     "devDebug": false
 }
