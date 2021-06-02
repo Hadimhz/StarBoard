@@ -12,11 +12,18 @@ let queue = [];
 let send = async (channel, message, stars, edit) => {
     if (stars < config_json_1.default.minReactions)
         return;
+    let attachment = message.attachments.filter(x => x.name != null).find(x => x.name != null && (x.name.endsWith('.png') || x.name.endsWith('.jpg')));
     let embed = new discord_js_1.default.MessageEmbed().setColor("GOLD")
-        .setAuthor(message.author.tag).setDescription('**__Message Content:__**\n' + message.content
-        + '\n\n``` ```' + `[Click Here To View The Message](${message.url})`)
+        .setAuthor(message.author.tag).setDescription(((message.content == null || message.content.length == 0) ? "" : '**__Message Content:__**\n'
+        + message.content)
+        + (attachment != null ? `${(message.content == null || message.content.length == 0) ? '' : '\n\n'}` : ""))
         .setFooter('in #' + message.channel.name)
+        .addField("󠀀󠀀Original Message:", `[Click Here To View The Message](${message.url})`)
         .setThumbnail(message.author.avatarURL() || message.author.defaultAvatarURL);
+    if (attachment != null) {
+        embed.addField("󠀀󠀀Attachment", `This message has the following [attachment](${attachment.url}):`)
+            .setImage(attachment.url);
+    }
     if (edit == null) {
         channel === null || channel === void 0 ? void 0 : channel.send(config_json_1.default.reaction + "#" + stars, embed).then(m => {
             quick_db_1.default.set(message.id + '.embedMessage', m.id);

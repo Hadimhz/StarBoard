@@ -34,7 +34,7 @@ let register = () => {
                 return;
             }
             // if a staff role is required...
-            if ((config_json_1.default.requiresStaffReaction == true || config_json_1.default.staffRoles.length > 0)) {
+            if ((config_json_1.default.requiresStaffReaction == true && config_json_1.default.staffRoles.length > 0)) {
                 if (config_json_1.default.devDebug)
                     console.log('staff role required');
                 // Check If there's uncached reaction, fetch all reaction
@@ -64,7 +64,7 @@ let register = () => {
         else {
             if (reaction.count != null && reaction.count < config_json_1.default.minReactions)
                 return;
-            if ((config_json_1.default.requiresStaffReaction == true || config_json_1.default.staffRoles.length > 0)) {
+            if ((config_json_1.default.requiresStaffReaction == true && config_json_1.default.staffRoles.length > 0)) {
                 if (config_json_1.default.devDebug)
                     console.log('staff role required');
                 if (reaction.count != reaction.users.cache.size) {
